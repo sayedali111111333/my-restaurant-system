@@ -1,45 +1,20 @@
+ï»¿// Ø·Â¬Ø¸â€Ø·Â¨ Ø¸Æ’Ø¸â€ Ø·Â§Ø¸â€Ø·Â·Ø¸â€Ø·Â¨Ø·Â§Ø·Ú¾
 import { supabase } from './supabaseClient';
 
-// àŸå¡ áé  ¤§ï§
-export async function addOrder(customer, items, totalAmount) {
-  const { data, error } = await supabase.from('Orders').insert([{ customer, items, totalAmount, status: 'pending' }]);
-  if (error) console.log('Error:', error); else console.log('Order added:', data);
-}
-
-// ¤é  èé Ÿéáé Ÿ¢
 export async function getOrders() {
-  const { data, error } = await supabase.from('Orders').select('*');
+  const { data, error } = await supabase.from('Order').select('*');
   if (error) console.log('Error:', error); else console.log('Orders:', data);
   return data;
 }
 
-// ¤é  çŸê¡ Ÿéêëïí
+// Ø·Â¬Ø¸â€Ø·Â¨ Ø¸â€šØ·Â§Ø·Â¦Ø¸â€¦Ø·Â© Ø·Â§Ø¸â€Ø¸â€¦Ø¸â€ Ø¸Ù¹Ø¸Ë†
 export async function getMenu() {
   const { data, error } = await supabase.from('MenuItem').select('*');
   if (error) console.log('Error:', error); else console.log('Menu:', data);
   return data;
 }
 
-// ¤é  èé ŸéãêéŸ˜
-export async function getCustomers() {
-  const { data, error } = await supabase.from('Customer').select('*');
-  if (error) console.log('Error:', error); else console.log('Customers:', data);
-  return data;
-}
-export async function getOrders() {
-  const { data, error } = await supabase.from('Orders').select('*');
-  if (error) console.log('Error:', error); else console.log('Orders:', data);
-  return data;
-}
-
-// ¤é  çŸê¡ Ÿéêëïí
-export async function getMenu() {
-  const { data, error } = await supabase.from('MenuItem').select('*');
-  if (error) console.log('Error:', error); else console.log('Menu:', data);
-  return data;
-}
-
-// ¤é  èé ŸéãêéŸ˜
+// Ø·Â¬Ø¸â€Ø·Â¨ Ø¸Æ’Ø¸â€ Ø·Â§Ø¸â€Ø·Â¹Ø¸â€¦Ø¸â€Ø·Â§Ø·ØŒ
 export async function getCustomers() {
   const { data, error } = await supabase.from('Customer').select('*');
   if (error) console.log('Error:', error); else console.log('Customers:', data);
